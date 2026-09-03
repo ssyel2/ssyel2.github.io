@@ -350,10 +350,9 @@ export default function Home() {
             <span>02 / Music</span><h3>British music to Lo Ta-yu.</h3><p>My music taste ranges from British music to Lo Ta-yu, and cycling is usually my preferred way to explore somewhere new.</p>
             <div className="interest-controls">
               <button type="button" onClick={drawMusic}>{musicPick ? 'Draw another song' : 'Draw a song'} <span aria-hidden="true">↗</span></button>
-              <a href="https://open.spotify.com/playlist/3SdQpYvinOUI0xmToHIPMG" target="_blank" rel="noreferrer">Playlist</a>
             </div>
             <div className="interest-pick" aria-live="polite">
-              {musicPick && <><strong>{musicPick[0]}</strong><span>{musicPick[1]}</span><a href={`https://open.spotify.com/track/${musicPick[2]}`} target="_blank" rel="noreferrer">Listen on Spotify <ArrowIcon /></a></>}
+              {musicPick && <><strong>{musicPick[0]}</strong><span>{musicPick[1]}</span></>}
             </div>
           </article>
           <article><span>03 / Reading</span><h3>Classics, science, and a little randomness.</h3><p>I keep a personal reading list spanning scientific classics, the history of ideas, and world literature—and built a tiny random book-draw tool to choose what to read next.</p></article>

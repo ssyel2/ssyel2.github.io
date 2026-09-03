@@ -282,7 +282,7 @@ export default function Home() {
         <div className="section-heading"><p className="section-kicker">03 / Academic path</p><h2>Education &amp;<br />Experience</h2></div>
         <div className="timeline-columns">
           <div className="timeline-column"><h3>Education &amp; selected training</h3>
-            <article><time>2024 — 2028 (Expected)</time><h4>University of Nottingham Ningbo China</h4><p><strong>BEng (Hons) Chemical and Environmental Engineering</strong></p><small>Degree program · Foundation Physics 89% (Top 10 in Faculty) · Calculus 74% · The Scientific Method 70%</small></article>
+            <article><time>2024 — 2028 (Expected)</time><h4>University of Nottingham Ningbo China</h4><p><strong>BEng (Hons) Chemical and Environmental Engineering</strong></p></article>
             <article><time>2026 — Present</time><h4>University of Oxford</h4><p><strong>Advanced Project · Machine Learning for Computer Vision</strong></p><small>Academic project, not a degree program · Supervisor: <a href="https://eng.ox.ac.uk/people/jens-rittscher" target="_blank" rel="noreferrer">Prof. Jens Rittscher <ArrowIcon /></a></small></article>
             <article><time>2025</time><h4>University of Oxford</h4><p><strong>Oxford Machine Learning Summer School · A+ (Top 1%)</strong></p><small>Selected academic training · Instructor: <a href="https://eng.ox.ac.uk/people/adel-bibi" target="_blank" rel="noreferrer">Dr. Adel Bibi <ArrowIcon /></a></small></article>
             <article><time>Mar 2025 — Jan 2026</time><h4>Imperial College London</h4><p><strong>Advanced Project Courses</strong></p><small>Academic training, not a degree program · Neuroengineering and Neurotechnology 97/100 · Brain-Machine Interfaces 88/100</small></article>

@@ -22,18 +22,16 @@ const researchItems: Array<{
     title: 'Biophysically Detailed Whole-Brain Modeling',
     institution: 'Tsinghua University',
     role: 'Research Assistant',
-    description: 'Building biophysically detailed neuron models across multiple cell classes toward a whole-brain digital Drosophila, integrating multicompartment cable models, Markov ion-channel dynamics, and simulation-based Bayesian inference.',
-    tags: ['Computational Neuroscience', 'Biophysical Modeling', 'Neural Dynamics', 'SBI', 'Digital Drosophila'],
+    description: 'How can a brain be rebuilt in a computer, one neuron at a time? I turn real neuron shapes and electrical behavior into digital cells, test where they fail, and assemble them toward a working whole-brain model of the fruit fly.',
+    tags: ['Digital Brain', 'Neuron Modeling', 'Model Validation'],
     facts: [
-      'Nine cell classes, from photoreceptors to flight motor neurons',
-      'Electron-microscopy morphology and multicompartment cable models',
-      'Four-state Markov ion-channel dynamics and voltage simulation',
-      'Posterior parameter distributions with uncertainty quantification',
-      'Model-acceptance diagnostics, including false-positive failure modes',
-      'A corrected cell-class mis-specification reduced point-prediction error by approximately 17-fold',
-      'Reference-data reliability can constrain fidelity more strongly than raw compute',
+      'Recreating how different fruit-fly neurons receive, transform, and pass on signals',
+      'Building and testing digital versions of nine neuron classes, from vision to flight control',
+      'Comparing simulated activity with experimental recordings',
+      'Finding why a model can look convincing while still being wrong',
+      'Connecting validated digital neurons into a whole-brain simulation',
     ],
-    caption: 'Morphology → Biophysics → Neural Dynamics → Inference → Whole-Brain Model',
+    caption: 'Real Neurons → Digital Cells → Tested Models → Whole-Brain Network',
   },
   {
     id: 'fmri',
@@ -41,17 +39,16 @@ const researchItems: Array<{
     title: 'SpExNeuro — Overt-Speech fMRI',
     institution: 'Forschungszentrum Jülich',
     role: 'Incoming Visiting Student · Remote currently · On-site visit expected June 2027',
-    description: 'Developing a methodological framework for reliable acquisition and computational analysis of overt speech during fMRI, with particular attention to scanner noise, speech-induced motion, neural-signal integrity, and language-biomarker validity.',
-    tags: ['fMRI', 'Neuroimaging', 'Speech', 'Motion Correction', 'Language Biomarkers'],
+    description: 'What does the brain do while a person speaks? I am helping design a reliable way to record speech inside an MRI scanner, separate the voice from scanner noise and movement, and connect what is said with what the brain is doing.',
+    tags: ['Speech & Brain', 'fMRI', 'Reliable Measurement'],
     facts: [
-      'Overt-speech task design and in-scanner audio recording',
-      'Scanner acoustic noise and speech-induced rigid / non-rigid motion',
-      'Source-separation denoising and motion correction',
-      'Speech-feature extraction and correction-method operating limits',
-      'Protocol optimization and reproducible analysis',
-      'A methodological route toward neuro-linguistic and clinical language-biomarker modeling',
+      'Designing speaking tasks that can be performed safely and naturally inside a scanner',
+      'Recording the voice without losing it beneath loud scanner noise',
+      'Reducing the image distortion caused by head and speech movement',
+      'Linking cleaned speech with the brain activity recorded at the same moment',
+      'Establishing a dependable foundation for future language and health research',
     ],
-    caption: 'Speech → Noise & Motion → Correction → Neural Representation → Biomarkers',
+    caption: 'Speak in the Scanner → Clean the Data → Link Voice and Brain → Study Language',
   },
   {
     id: 'eeg',
@@ -59,17 +56,16 @@ const researchItems: Array<{
     title: 'NeuroPIT — Physics-Informed EEG Decoding',
     institution: 'University of Nottingham Ningbo China',
     role: 'Research Assistant',
-    description: 'Developing a physics-informed few-shot learning framework for motor-imagery EEG decoding by combining biophysical neural-dynamics priors with data-driven representation learning for efficient cross-subject adaptation.',
-    tags: ['EEG', 'BCI', 'Physics-Informed Learning', 'Few-Shot Learning', 'Neural Dynamics'],
+    description: 'Can an EEG system learn a new person from only a handful of examples? I am building a brain–computer interface that uses how neural signals behave to adapt quickly and recognize imagined movements across people.',
+    tags: ['EEG', 'Brain–Computer Interface', 'Fast Adaptation'],
     facts: [
-      'BCI Competition IV-2a with standardized preprocessing',
-      'Volume-conduction modeling and FitzHugh–Nagumo constraints',
-      'Transformer-based representation learning and simulation pretraining',
-      'Cross-subject learning with 5-shot subject calibration',
-      'Fixed/random-seed control and support/query splits',
-      'Ablation diagnostics and comparison with FBCSP+LDA and EEGNet',
+      'Reading scalp signals while a person imagines moving a hand or foot',
+      'Learning useful brain-signal patterns shared across participants',
+      'Adapting the system to a new participant from just five examples',
+      'Using knowledge of neural behavior to guide what the system learns',
+      'Testing which ideas genuinely improve reliable cross-person decoding',
     ],
-    caption: 'Neural Dynamics → EEG → Physics-Informed Learning → Few-Shot Adaptation → BCI',
+    caption: 'Brain Activity → Scalp EEG → Shared Patterns → Five Examples → Decode Intention',
   },
 ];
 
@@ -121,30 +117,30 @@ function MiniSchematic({ type }: { type: ResearchKey }) {
 
 function FlyDiagram() {
   return (
-    <svg className="research-diagram" viewBox="0 0 920 290" aria-label="From neuron morphology through biophysical simulation and Bayesian inference to a whole-brain network">
-      <title>Biophysical neuron modeling pipeline</title>
+    <svg className="research-diagram" viewBox="0 0 920 290" aria-label="Real neurons are rebuilt as digital cells, tested against recordings, and connected into a brain network">
+      <title>From real neurons to a digital brain network</title>
       <defs><marker id="fly-arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 8 4 0 8Z" /></marker></defs>
       <g className="diagram-step step-1">
         <path className="diagram-line" d="M45 180c20-8 12-58 47-56 29 2 14 39 43 42 26 2 30-38 62-37m-104-5-18-34m58 77-4 46m18-52 28 34" />
-        <circle className="diagram-node strong" cx="93" cy="124" r="10" /><text x="37" y="255">EM MORPHOLOGY</text>
+        <circle className="diagram-node strong" cx="93" cy="124" r="10" /><text x="45" y="255">REAL NEURON</text>
       </g>
       <path className="diagram-arrow step-2" d="M205 145h45" markerEnd="url(#fly-arrow)" />
       <g className="diagram-step step-2">
         <path className="diagram-line segmented" d="M272 185c20-8 12-58 47-56 29 2 14 39 43 42 26 2 30-38 62-37" />
         {[283, 310, 341, 378, 414].map((x, i) => <circle key={x} cx={x} cy={[172, 133, 157, 158, 137][i]} r="5" />)}
-        <text x="275" y="255">COMPARTMENTS</text>
+        <text x="273" y="255">DIGITAL NEURON</text>
       </g>
       <path className="diagram-arrow step-3" d="M432 145h38" markerEnd="url(#fly-arrow)" />
       <g className="diagram-step step-3 markov">
         <circle cx="505" cy="105" r="17" /><circle cx="566" cy="105" r="17" /><circle cx="566" cy="168" r="17" /><circle cx="505" cy="168" r="17" />
         <path className="diagram-line" d="M523 105h24m19 18v27m-18 18h-25m-18-18v-27" />
-        <text x="494" y="110">C₁</text><text x="555" y="110">C₂</text><text x="556" y="173">O</text><text x="500" y="173">I</text><text x="482" y="255">ION STATES</text>
+        <text x="494" y="110">C₁</text><text x="555" y="110">C₂</text><text x="556" y="173">O</text><text x="500" y="173">I</text><text x="473" y="255">SIGNAL RULES</text>
       </g>
       <path className="diagram-arrow step-4" d="M600 145h34" markerEnd="url(#fly-arrow)" />
       <g className="diagram-step step-4">
         <path className="trace reference" d="M650 175c20 0 18-75 34-75s13 75 30 75 16-52 31-52 12 52 30 52" />
         <path className="trace simulated" d="M650 184c18 0 18-70 35-70s13 70 29 70 16-47 31-47 12 47 30 47" />
-        <text x="655" y="255">VOLTAGE TRACES</text>
+        <text x="652" y="255">TEST &amp; COMPARE</text>
       </g>
       <path className="diagram-arrow step-5" d="M786 145h29" markerEnd="url(#fly-arrow)" />
       <g className="diagram-step step-5 network">
@@ -153,7 +149,7 @@ function FlyDiagram() {
           const points = [[825, 90], [871, 88], [897, 128], [884, 181], [839, 187], [811, 147]];
           return <g key={i}><path className="diagram-line thin" d={`M852 137L${points[i][0]} ${points[i][1]}`} /><circle className="diagram-node" cx={points[i][0]} cy={points[i][1]} r="5" /></g>;
         })}
-        <text x="814" y="255">ACCEPTED MODEL</text>
+        <text x="813" y="255">BRAIN NETWORK</text>
       </g>
     </svg>
   );
@@ -161,38 +157,38 @@ function FlyDiagram() {
 
 function FmriDiagram() {
   return (
-    <svg className="research-diagram" viewBox="0 0 920 290" aria-label="Speech and motion enter MRI acquisition, are corrected, then form neural and language representations">
-      <title>Overt-speech fMRI acquisition and correction pipeline</title>
+    <svg className="research-diagram" viewBox="0 0 920 290" aria-label="Speech is recorded in an MRI scanner, cleaned of noise and movement, and linked with brain activity">
+      <title>Connecting speech with brain activity inside an MRI scanner</title>
       <defs><marker id="fmri-arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 8 4 0 8Z" /></marker></defs>
       <g className="diagram-step step-1"><path className="trace simulated" d="M27 145c12-39 24 39 36 0s24 39 36 0 24 39 36 0" /><text x="35" y="235">SPEECH TASK</text></g>
       <path className="diagram-arrow step-2" d="M142 145h44" markerEnd="url(#fmri-arrow)" />
       <g className="diagram-step step-2 scanner"><rect x="205" y="68" width="130" height="142" rx="64" /><rect x="233" y="97" width="74" height="84" rx="38" /><path className="diagram-line" d="M177 145h103" /><circle className="diagram-node strong" cx="257" cy="145" r="7" /><text x="214" y="235">MRI ACQUISITION</text></g>
       <g className="diagram-step step-3 noise"><path d="M354 92l10 20 10-20 10 20 10-20 10 20 10-20m-55 71 18-10m-18 10 14 15m-14-15-3-18" /><text x="356" y="235">NOISE + MOTION</text></g>
       <path className="diagram-arrow step-4" d="M435 145h43" markerEnd="url(#fmri-arrow)" />
-      <g className="diagram-step step-4 correction"><rect x="498" y="88" width="133" height="112" rx="8" /><path className="trace reference" d="M513 145c10-26 20 26 30 0s20 26 30 0 20 26 30 0" /><path className="accent-stroke" d="M518 176h92" /><text x="499" y="235">DENOISE + ALIGN</text></g>
+      <g className="diagram-step step-4 correction"><rect x="498" y="88" width="133" height="112" rx="8" /><path className="trace reference" d="M513 145c10-26 20 26 30 0s20 26 30 0 20 26 30 0" /><path className="accent-stroke" d="M518 176h92" /><text x="493" y="235">CLEAN + STABILIZE</text></g>
       <path className="diagram-arrow step-5" d="M647 145h39" markerEnd="url(#fmri-arrow)" />
-      <g className="diagram-step step-5 split"><path className="diagram-line" d="M701 145 760 103m-59 42 59 42" /><circle className="diagram-node" cx="760" cy="103" r="7" /><circle className="diagram-node" cx="760" cy="187" r="7" /><text x="715" y="80">SPEECH</text><text x="715" y="222">fMRI</text></g>
-      <g className="diagram-step step-6 converge"><path className="diagram-line" d="M767 103 854 145m-87 42 87-42" /><rect x="842" y="115" width="58" height="60" rx="29" /><text x="826" y="235">REPRESENTATION</text></g>
+      <g className="diagram-step step-5 split"><path className="diagram-line" d="M701 145 760 103m-59 42 59 42" /><circle className="diagram-node" cx="760" cy="103" r="7" /><circle className="diagram-node" cx="760" cy="187" r="7" /><text x="721" y="80">VOICE</text><text x="713" y="222">BRAIN</text></g>
+      <g className="diagram-step step-6 converge"><path className="diagram-line" d="M767 103 854 145m-87 42 87-42" /><rect x="842" y="115" width="58" height="60" rx="29" /><text x="824" y="235">LANGUAGE MAP</text></g>
     </svg>
   );
 }
 
 function EegDiagram() {
   return (
-    <svg className="research-diagram" viewBox="0 0 920 290" aria-label="Neural dynamics propagate through a volume model to EEG, representation learning, few-shot adaptation, and BCI output">
-      <title>Physics-informed EEG decoding pipeline</title>
+    <svg className="research-diagram" viewBox="0 0 920 290" aria-label="Brain activity becomes scalp EEG, shared patterns are learned, and five examples adapt the system to a new person">
+      <title>Adapting EEG decoding to a new person from five examples</title>
       <defs><marker id="eeg-arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 8 4 0 8Z" /></marker></defs>
-      <g className="diagram-step step-1 populations"><circle className="diagram-node strong" cx="72" cy="135" r="8" /><circle className="diagram-node" cx="37" cy="102" r="6" /><circle className="diagram-node" cx="111" cy="96" r="6" /><circle className="diagram-node" cx="115" cy="173" r="6" /><circle className="diagram-node" cx="38" cy="177" r="6" /><path className="diagram-line" d="M72 135 37 102m35 33 39-39m-39 39 43 38m-43-38-34 42" /><text x="24" y="235">NEURAL DYNAMICS</text></g>
+      <g className="diagram-step step-1 populations"><circle className="diagram-node strong" cx="72" cy="135" r="8" /><circle className="diagram-node" cx="37" cy="102" r="6" /><circle className="diagram-node" cx="111" cy="96" r="6" /><circle className="diagram-node" cx="115" cy="173" r="6" /><circle className="diagram-node" cx="38" cy="177" r="6" /><path className="diagram-line" d="M72 135 37 102m35 33 39-39m-39 39 43 38m-43-38-34 42" /><text x="30" y="235">BRAIN ACTIVITY</text></g>
       <path className="diagram-arrow step-2" d="M137 140h35" markerEnd="url(#eeg-arrow)" />
-      <g className="diagram-step step-2 head"><path d="M224 63c-45 17-49 112-8 143m8-143c44-8 75 17 78 53 2 25-14 37-14 67v23h-72" />{[210, 230, 254, 278].map((x, i) => <circle key={x} className="electrode" cx={x} cy={[93, 72, 69, 85][i]} r="5" />)}<path className="diagram-line thin" d="M210 93c22 24 42 40 78 45" /><text x="194" y="235">VOLUME MODEL</text></g>
+      <g className="diagram-step step-2 head"><path d="M224 63c-45 17-49 112-8 143m8-143c44-8 75 17 78 53 2 25-14 37-14 67v23h-72" />{[210, 230, 254, 278].map((x, i) => <circle key={x} className="electrode" cx={x} cy={[93, 72, 69, 85][i]} r="5" />)}<path className="diagram-line thin" d="M210 93c22 24 42 40 78 45" /><text x="188" y="235">HEAD + SENSORS</text></g>
       <path className="diagram-arrow step-3" d="M310 140h35" markerEnd="url(#eeg-arrow)" />
       <g className="diagram-step step-3"><path className="trace simulated" d="M360 112c9-27 18 27 27 0s18 27 27 0 18 27 27 0" /><path className="trace reference" d="M360 151c9-18 18 18 27 0s18 18 27 0 18 18 27 0" /><path className="trace muted" d="M360 184c9-12 18 12 27 0s18 12 27 0 18 12 27 0" /><text x="375" y="235">SCALP EEG</text></g>
       <path className="diagram-arrow step-4" d="M455 140h33" markerEnd="url(#eeg-arrow)" />
-      <g className="diagram-step step-4 transformer">{[0, 1, 2].map(i => <rect key={i} x={505 + i * 24} y={93 + i * 13} width="70" height="78" rx="5" />)}<text x="502" y="235">REPRESENTATION</text></g>
+      <g className="diagram-step step-4 transformer">{[0, 1, 2].map(i => <rect key={i} x={505 + i * 24} y={93 + i * 13} width="70" height="78" rx="5" />)}<text x="501" y="235">SHARED PATTERNS</text></g>
       <path className="diagram-arrow step-5" d="M612 140h33" markerEnd="url(#eeg-arrow)" />
-      <g className="diagram-step step-5 shots">{[0, 1, 2, 3, 4].map(i => <circle key={i} className="diagram-node" cx={667 + (i % 3) * 24} cy={119 + Math.floor(i / 3) * 35} r="7" />)}<text x="655" y="235">5-SHOT ADAPT</text></g>
+      <g className="diagram-step step-5 shots">{[0, 1, 2, 3, 4].map(i => <circle key={i} className="diagram-node" cx={667 + (i % 3) * 24} cy={119 + Math.floor(i / 3) * 35} r="7" />)}<text x="651" y="235">FIVE EXAMPLES</text></g>
       <path className="diagram-arrow step-6" d="M735 140h34" markerEnd="url(#eeg-arrow)" />
-      <g className="diagram-step step-6 output"><rect x="790" y="92" width="98" height="94" rx="7" /><path className="accent-stroke" d="M814 155v-28m24 28V112m24 43v-47" /><text x="798" y="235">BCI DECODING</text></g>
+      <g className="diagram-step step-6 output"><rect x="790" y="92" width="98" height="94" rx="7" /><path className="accent-stroke" d="M814 155v-28m24 28V112m24 43v-47" /><text x="799" y="235">DECODE INTENT</text></g>
     </svg>
   );
 }
@@ -245,7 +241,7 @@ export default function Home() {
       </section>
 
       <section className="research-section" id="research">
-        <div className="section-heading"><p className="section-kicker">01 / Current focus</p><h2>Current Research</h2><p>Biophysical models become signals; signals become representations; representations become adaptive systems.</p></div>
+        <div className="section-heading"><p className="section-kicker">01 / Current focus</p><h2>Current Research</h2><p>Three questions across scales: how to build a digital brain, how to measure the speaking brain, and how to make brain–computer interfaces adapt to people.</p></div>
         <div className="research-cards">
           {researchItems.map(item => {
             const isOpen = expanded === item.id;
@@ -309,7 +305,7 @@ export default function Home() {
 
       <section className="misc-section" id="misc">
         <div className="section-heading"><p className="section-kicker">05 / Beyond research</p><h2>Beyond Research</h2></div>
-        <div className="misc-grid"><article><span>01 / Sports</span><h3>Movement and competition.</h3><p>Outside research, I enjoy table tennis, cycling, and chess. I follow football closely, especially Real Madrid, Bayern Munich, and the French national team.</p></article><article><span>02 / Music</span><h3>British music to Lo Ta-yu.</h3><p>My music taste ranges from British music to Lo Ta-yu, and cycling is usually my preferred way to explore somewhere new.</p></article><div className="smile" aria-hidden="true">:)</div></div>
+        <div className="misc-grid"><article><span>01 / Sports</span><h3>Movement and competition.</h3><p>Outside research, I enjoy table tennis, cycling, and chess. I follow football closely, especially Real Madrid, Bayern Munich, and the French national team.</p></article><article><span>02 / Music</span><h3>British music to Lo Ta-yu.</h3><p>My music taste ranges from British music to Lo Ta-yu, and cycling is usually my preferred way to explore somewhere new.</p></article><article><span>03 / Reading</span><h3>Classics, science, and a little randomness.</h3><p>I keep a personal reading list spanning scientific classics, the history of ideas, and world literature—and built a tiny random book-draw tool to choose what to read next.</p></article><div className="smile" aria-hidden="true">:)</div></div>
       </section>
 
       <footer><div><strong>Enze Li</strong><p>Computational Neuroscience · Neuroengineering · AI for Science</p></div><div className="footer-links"><a href="mailto:ssyel2@nottingham.edu.cn">Email</a><a href="https://orcid.org/0009-0003-9724-9581" target="_blank" rel="noreferrer">ORCID</a><a href="https://github.com/ssyel2" target="_blank" rel="noreferrer">GitHub</a></div><span>© 2026 Enze Li</span></footer>

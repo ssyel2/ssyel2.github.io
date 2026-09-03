@@ -353,9 +353,9 @@ export default function Home() {
       <section className="misc-section" id="misc">
         <div className="section-heading"><p className="section-kicker">05 / Beyond research</p><h2>Beyond Research</h2></div>
         <div className="misc-grid">
-          <article><span>01 / Sports</span><h3>Movement and competition.</h3><p>Outside research, I enjoy table tennis, cycling, and chess. I follow football closely, especially Real Madrid, Bayern Munich, and the French national team.</p></article>
+          <article><span>01 / Sports</span><h3>Movement and competition.</h3><p>Outside research, I enjoy table tennis, cycling, and chess. I follow football closely, especially Real Madrid and the French national team.</p></article>
           <article className="interactive-interest">
-            <span>02 / Music</span><h3>British music to Lo Ta-yu.</h3><p>My music taste ranges from British music to Lo Ta-yu, and cycling is usually my preferred way to explore somewhere new.</p>
+            <span>02 / Music</span><h3>British music to Lo Ta-yu.</h3><p>My music taste ranges from British music to Lo Ta-yu.</p>
             <div className="interest-controls">
               <button type="button" onClick={drawMusic}>{musicPick ? 'Draw another song' : 'Draw a song'} <span aria-hidden="true">↻</span></button>
             </div>

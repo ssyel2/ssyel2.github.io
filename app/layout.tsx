@@ -3,19 +3,19 @@ import './globals.css';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://ssyel2.github.io'),
-  title: 'SSYEL — Computational Neuroscience',
-  description: '数字神经元、生物物理建模与脑电智能分析。',
+  title: 'Enze Li | Computational Neuroscience · Neuroengineering · AI for Science',
+  description: 'Academic homepage of Enze Li, an undergraduate researcher working across computational neuroscience, neuroengineering, whole-brain modeling, neuroimaging, EEG/BCI, medical AI, and AI for Science.',
   openGraph: {
-    title: 'SSYEL — Computational Neuroscience',
-    description: 'Evidence · Models · Open Science',
+    title: 'Enze Li | Computational Neuroscience · Neuroengineering · AI for Science',
+    description: 'Academic homepage of Enze Li, an undergraduate researcher working across computational neuroscience, neuroengineering, whole-brain modeling, neuroimaging, EEG/BCI, medical AI, and AI for Science.',
     type: 'website',
-    images: [{ url: '/og.png', width: 1200, height: 630, alt: 'SSYEL computational neuroscience' }],
+    images: [{ url: '/assets/images/enze-li.jpg', width: 680, height: 680, alt: 'Profile image selected by Enze Li' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'SSYEL — Computational Neuroscience',
-    description: 'Evidence · Models · Open Science',
-    images: ['/og.png'],
+    title: 'Enze Li | Computational Neuroscience · Neuroengineering · AI for Science',
+    description: 'Academic homepage of Enze Li, an undergraduate researcher working across computational neuroscience, neuroengineering, whole-brain modeling, neuroimaging, EEG/BCI, medical AI, and AI for Science.',
+    images: ['/assets/images/enze-li.jpg'],
   },
 };
 

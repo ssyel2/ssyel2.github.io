@@ -2,6 +2,7 @@
 /* oxlint-disable next/no-img-element */
 
 import { useState } from 'react';
+import { loadBookLibrary, type Book } from './book-library';
 
 type ResearchKey = 'fly' | 'fmri' | 'eeg';
 
@@ -242,10 +243,17 @@ export default function Home() {
   const [expanded, setExpanded] = useState<ResearchKey | null>(null);
   const [showOlderNews, setShowOlderNews] = useState(false);
   const [musicPick, setMusicPick] = useState<(typeof musicPlaylist)[number] | null>(null);
+  const [bookPick, setBookPick] = useState<Book | null>(null);
 
   const drawMusic = () => {
     const choices = musicPick ? musicPlaylist.filter(track => track[2] !== musicPick[2]) : musicPlaylist;
     setMusicPick(choices[Math.floor(Math.random() * choices.length)]);
+  };
+
+  const drawBook = () => {
+    const library = loadBookLibrary();
+    const choices = bookPick ? library.filter(book => book[0] !== bookPick[0] || book[1] !== bookPick[1]) : library;
+    setBookPick(choices[Math.floor(Math.random() * choices.length)]);
   };
 
   return (
@@ -349,13 +357,21 @@ export default function Home() {
           <article className="interactive-interest">
             <span>02 / Music</span><h3>British music to Lo Ta-yu.</h3><p>My music taste ranges from British music to Lo Ta-yu, and cycling is usually my preferred way to explore somewhere new.</p>
             <div className="interest-controls">
-              <button type="button" onClick={drawMusic}>{musicPick ? 'Draw another song' : 'Draw a song'} <span aria-hidden="true">↗</span></button>
+              <button type="button" onClick={drawMusic}>{musicPick ? 'Draw another song' : 'Draw a song'} <span aria-hidden="true">↻</span></button>
             </div>
             <div className="interest-pick" aria-live="polite">
               {musicPick && <><strong>{musicPick[0]}</strong><span>{musicPick[1]}</span></>}
             </div>
           </article>
-          <article><span>03 / Reading</span><h3>Classics, science, and a little randomness.</h3><p>I keep a personal reading list spanning scientific classics, the history of ideas, and world literature—and built a tiny random book-draw tool to choose what to read next.</p></article>
+          <article className="interactive-interest">
+            <span>03 / Reading</span><h3>Classics, science, and a little randomness.</h3><p>I keep a personal reading list spanning scientific classics, the history of ideas, and world literature—and built a tiny random book-draw tool to choose what to read next.</p>
+            <div className="interest-controls">
+              <button type="button" onClick={drawBook}>{bookPick ? 'Draw another book' : 'Draw a book'} <span aria-hidden="true">↻</span></button>
+            </div>
+            <div className="interest-pick" aria-live="polite">
+              {bookPick && <><strong>{bookPick[0]}</strong><span>{bookPick[1]}</span></>}
+            </div>
+          </article>
           <div className="smile" aria-hidden="true">:)</div>
         </div>
       </section>

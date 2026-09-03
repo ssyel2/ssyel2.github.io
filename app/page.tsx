@@ -82,6 +82,39 @@ const news = [
   ['2025', 'Received Third Prize / Best Poster at the UNNC FOSE UG/PGT Research Showcase.'],
 ];
 
+const musicPlaylist = [
+  ['青春舞曲2000 - 粵語版', '羅大佑', '2shGFNhwcNV9lcHe9Aa0Ce'],
+  ['皇后大道東', '羅大佑, 蔣志光', '755VGXbuSWwEfQjjjNXrYj'],
+  ['首都', '羅大佑', '0LYVMtQp7FFvg98CL1sSll'],
+  ['飛車', '羅大佑', '5R0Z1QCgzoxA1agwpan50O'],
+  ['新生代', '羅大佑', '0O3OcfR9PxHwB9VEtM7b92'],
+  ['長征', '羅大佑', '3yxDAKr0RJtQtdeKIIFi2E'],
+  ['火車', '羅大佑', '5swhO3EMxsgNMG39vKtvit'],
+  ['動亂', '羅大佑', '5dumOWSFU2WZrILUdNOHhZ'],
+  ['青春舞曲2000', '羅大佑', '1oPZRgVJ8wu5j0o1EBSJhz'],
+  ['侏儒之歌', '羅大佑', '0y6YOTSRCTffXwC3cwaFvI'],
+  ['京城夜', '羅大佑', '5YShloSyMrJF5Zl2dG6qyt'],
+  ['戀曲1990', '羅大佑', '1BKW13bMxdsWS743se5qBY'],
+  ['未來的主人翁', '羅大佑', '1Y1g5Fj1yt0sAMxPncnZE7'],
+  ['亞細亞的孤兒', '羅大佑', '6uKP7OpffcxMyUd2wWz1Ru'],
+  ['現象七十二變', '羅大佑', '5gNs70OeDy5IR90sV5omKM'],
+  ['之乎者也', '羅大佑', '6cSEzEY7fQWlhYTXBtLwcg'],
+  ['鄉愁四韻', '羅大佑', '3Pg58bpruja0VSq8a11tB3'],
+  ['鹿港小鎮', '羅大佑', '2i8jjYs7zvZaXoWpJHhnn1'],
+  ['戀曲1980', '羅大佑', '413VMa7YMS6j5EmSYZ2owY'],
+  ['童年', '羅大佑', '0CVeU9H9DYL1PAc1LpLLgV'],
+  ['光陰的故事', '羅大佑', '4qsESiC3wgGj1kXJTdICF2'],
+  ['錯誤', '羅大佑', '1DDQC8NYaingVt4FQ8zimP'],
+  ['戀曲1990', '羅大佑', '5pkjF8YfJM7zIHcuOlgUd9'],
+  ['京城夜', '羅大佑', '2Nn6EhPJMqoeHJQZa2JAy2'],
+  ['愛人同志', '羅大佑', '500DVjoblTRODVTVtLBHKg'],
+  ['臺北紅玫瑰', '羅大佑', '7aHVkg4v9cdEuR3JEW4wyy'],
+  ['五十塊錢', '羅大佑', '1H6C5EzfAXRRXF9OiSnuiy'],
+  ['戀曲2000', '羅大佑', '5Sf6Tw8eRu1zyEdcgw9jJH'],
+  ['妳的樣子', '羅大佑', '0zTwAF3qPiC64MfHktNmla'],
+  ['海上花 - 合唱版', '羅大佑', '0suAbbYBxcaLuOBlHgAe8V'],
+] as const;
+
 function ArrowIcon() {
   return <svg aria-hidden="true" viewBox="0 0 16 16"><path d="M3 13 13 3M6 3h7v7" /></svg>;
 }
@@ -208,6 +241,12 @@ const externalLinks = [
 export default function Home() {
   const [expanded, setExpanded] = useState<ResearchKey | null>(null);
   const [showOlderNews, setShowOlderNews] = useState(false);
+  const [musicPick, setMusicPick] = useState<(typeof musicPlaylist)[number] | null>(null);
+
+  const drawMusic = () => {
+    const choices = musicPick ? musicPlaylist.filter(track => track[2] !== musicPick[2]) : musicPlaylist;
+    setMusicPick(choices[Math.floor(Math.random() * choices.length)]);
+  };
 
   return (
     <main>
@@ -305,7 +344,21 @@ export default function Home() {
 
       <section className="misc-section" id="misc">
         <div className="section-heading"><p className="section-kicker">05 / Beyond research</p><h2>Beyond Research</h2></div>
-        <div className="misc-grid"><article><span>01 / Sports</span><h3>Movement and competition.</h3><p>Outside research, I enjoy table tennis, cycling, and chess. I follow football closely, especially Real Madrid, Bayern Munich, and the French national team.</p></article><article><span>02 / Music</span><h3>British music to Lo Ta-yu.</h3><p>My music taste ranges from British music to Lo Ta-yu, and cycling is usually my preferred way to explore somewhere new.</p></article><article><span>03 / Reading</span><h3>Classics, science, and a little randomness.</h3><p>I keep a personal reading list spanning scientific classics, the history of ideas, and world literature—and built a tiny random book-draw tool to choose what to read next.</p></article><div className="smile" aria-hidden="true">:)</div></div>
+        <div className="misc-grid">
+          <article><span>01 / Sports</span><h3>Movement and competition.</h3><p>Outside research, I enjoy table tennis, cycling, and chess. I follow football closely, especially Real Madrid, Bayern Munich, and the French national team.</p></article>
+          <article className="interactive-interest">
+            <span>02 / Music</span><h3>British music to Lo Ta-yu.</h3><p>My music taste ranges from British music to Lo Ta-yu, and cycling is usually my preferred way to explore somewhere new.</p>
+            <div className="interest-controls">
+              <button type="button" onClick={drawMusic}>{musicPick ? 'Draw another song' : 'Draw a song'} <span aria-hidden="true">↗</span></button>
+              <a href="https://open.spotify.com/playlist/3SdQpYvinOUI0xmToHIPMG" target="_blank" rel="noreferrer">Playlist</a>
+            </div>
+            <div className="interest-pick" aria-live="polite">
+              {musicPick && <><strong>{musicPick[0]}</strong><span>{musicPick[1]}</span><a href={`https://open.spotify.com/track/${musicPick[2]}`} target="_blank" rel="noreferrer">Listen on Spotify <ArrowIcon /></a></>}
+            </div>
+          </article>
+          <article><span>03 / Reading</span><h3>Classics, science, and a little randomness.</h3><p>I keep a personal reading list spanning scientific classics, the history of ideas, and world literature—and built a tiny random book-draw tool to choose what to read next.</p></article>
+          <div className="smile" aria-hidden="true">:)</div>
+        </div>
       </section>
 
       <footer><div><strong>Enze Li</strong><p>Computational Neuroscience · Neuroengineering · AI for Science</p></div><div className="footer-links"><a href="mailto:ssyel2@nottingham.edu.cn">Email</a><a href="https://orcid.org/0009-0003-9724-9581" target="_blank" rel="noreferrer">ORCID</a><a href="https://github.com/ssyel2" target="_blank" rel="noreferrer">GitHub</a></div><span>© 2026 Enze Li</span></footer>
